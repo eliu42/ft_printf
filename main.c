@@ -3,7 +3,7 @@
 
 int		main()
 {
-	printf("printf: the string is %s  \n", "Hello World!");
-	ft_printf("ft_printf: the string is %s\n", "Hello World!");
+	printf("printf:%d  \n", 42042);
+	ft_printf("ft_printf:%d   \n", 42042);
 	return (0);
 }
