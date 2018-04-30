@@ -1,0 +1,147 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/16 18:09:53 by eliu              #+#    #+#             */
+/*   Updated: 2018/04/27 19:11:12 by eliu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <stdbool.h>
+# include "libft.h"
+# include <stdio.h>
+# include <stdarg.h>
+
+/*
+**	I only need a flag for the type of variable (conversion), maybe multiple
+**	for (flags) since there can be multiple ones in the same conversion. I 
+**	will also probably need the value of the argument stored somewhere (void).
+*/
+
+typedef struct			s_mod
+{
+	bool				j;
+	bool				z;
+	bool				h;
+	bool				l;
+	bool				double_h;
+	bool				double_l;
+}						t_mod;
+
+typedef struct			s_field_width
+{
+	bool				exists;
+	int					final_width;
+}
+
+typedef struct			s_flag
+{
+	bool				hash;
+	bool				zero;
+	bool				minus;
+	bool				plus;
+	bool				space;
+	bool				precision;
+	t_field_width		field_width;
+}						t_flag;
+
+typedef struct			s_printf
+{
+	char				*buffer;
+	bool				input;
+	char				pad;
+	bool				percent;
+	bool				n_total;
+	bool				c;
+	bool				w_char;
+	bool				s;
+	bool				w_string;
+	bool				i;
+	bool				d;
+	bool				d_long;
+	bool				o;
+	bool				o_long;
+	bool				u;
+	bool				u_long;
+	bool				x;
+	bool				x_big;
+	bool				p;
+	t_mod				*mod;
+	t_flag				*flag;
+}						t_printf;
+
+//						Main function.
+int						ft_printf(const char * restrict format, ...);
+//						Main Parser
+int						parse(char *format, t_printf *conversions, va_list va_args);
+//						Parses all conversions: variables, flags, and mods.
+int						parse_conversion(char f, t_printf *conversions);
+
+bool					parse_variable_type(char f, t_printf *conversions);
+
+bool					is_percent(char f, t_printf *conversions);
+//						Character type conversions. Chars and strings.
+bool					is_char_type(char f, t_printf *conversions);
+
+bool					is_c_conversion(char f, t_printf *conversions);
+bool					is_w_char_conversion(char f, t_printf *conversions);
+bool					is_s_conversion(char f, t_printf *conversions);
+bool					is_w_string_conversion(char f, t_printf *conversions);
+//						Numerical type conversions. Signed and unsigned with all sorts of different bases.
+bool					is_num_type(char f, t_printf *conversions);
+//						Base 10 normal conversions. Signed and unsigned.
+bool					is_base_ten(char f, t_printf *conversions);
+
+bool					is_d_conversion(char f, t_printf *conversions);
+bool					is_d_long_conversion(char f, t_printf *conversions);
+bool					is_i_conversion(char f, t_printf *conversions);
+bool					is_u_conversion(char f, t_printf *conversions);
+bool					is_u_long_conversion(char f, t_printf *conversions);
+//						Non base 10 conversions. Unsigned only.
+bool					is_not_base_ten(char f, t_printf *conversions);
+
+bool					is_o_conversion(char f, t_printf *conversions);
+bool					is_o_long_conversion(char f, t_printf *conversions);
+bool					is_p_conversion(char f, t_printf *conversions);
+bool					is_x_conversion(char f, t_printf *conversions);
+bool					is_x_big_conversion(char f, t_printf *conversions);
+
+//						Flag types.
+bool					parse_flag_type(char f, t_printf *conversions);
+
+bool					is_hash_flag(char f, t_printf *conversions);
+bool					is_minus_flag(char f, t_printf *conversions);
+bool					is_plus_flag(char f, t_printf *conversions);
+bool					is_space_flag(char f, t_printf *conversions);
+bool					is_zero_flag(char f, t_printf *conversions);
+
+//						Modifier types.
+bool					parse_modifier_type(char f, t_printf *conversions);
+
+bool					is_h_mod(char f, t_printf *conversions);
+bool					is_hh_mod(char f, t_printf *conversions);
+bool					is_l_mod(char f, t_printf *conversions);
+bool					is_ll_mod(char f, t_printf *conversions);
+bool					is_j_mod(char f, t_printf *conversions);
+bool					is_z_mod(char f, t_printf *conversions);
+bool					is__mod(char f, t_printf *conversions);
+
+//						Printing.
+long 					print_conversion(char *format, t_printf *conversions, va_list va_args);
+
+//						Initiates structures.
+void					zero_struct(t_printf *conversions);
+
+
+//int					convert(t_printf *printf);
+
+//void					*find_conversion(const char * restrict format, char c);
+//void					*find_flag(const char * restrict format, t_printf *printf);
+
+#endif
