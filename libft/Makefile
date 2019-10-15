@@ -6,7 +6,7 @@
 #    By: eliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+             #
 #    Created: 2016/11/03 18:27:38 by eliu              #+#    #+#              #
-#    Updated: 2018/04/19 15:11:45 by eliu             ###   ########.fr        #
+#    Updated: 2019/10/15 12:41:44 by eliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,8 @@ OBJ_PATH = ./objs/
 C_FLAGS = -Wall -Wextra -Werror
 INCLUDES = includes
 
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
 $(NAME): $(SRC_FILES)
@@ -112,4 +114,3 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re

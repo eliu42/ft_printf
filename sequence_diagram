@@ -1,0 +1,14 @@
+Steps:
+
+1) Have Makefile compile libft (based on correct dependencies) as well as printflibft (with dependencies)
+2) Compile a main with printf to see if things are working properly
+3) ??? unit test
+4) Profit
+
+
+Reading the input:
+When to use va_arg to grab the next argument?
+How to parse the input?
+What does regular output conversions look like?
+How do the flags and modifiers work on data?
+
