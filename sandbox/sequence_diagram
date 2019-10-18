@@ -1,0 +1,10 @@
+Steps:
+
+Reading the input:
+When to use va_arg to grab the next argument?
+How to parse the input?
+What does regular output conversions look like?
+How do the flags and modifiers work on data?
+
+Current task:
+	

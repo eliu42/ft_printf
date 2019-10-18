@@ -6,7 +6,7 @@
 #    By: eliu <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                +#+#+#+#+#+   +#+             #
 #    Created: 2016/11/03 18:27:38 by eliu              #+#    #+#              #
-#    Updated: 2019/10/15 12:41:44 by eliu             ###   ########.fr        #
+#    Updated: 2019/10/17 16:44:37 by eliu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft.a
 FILES = atoi \
 		bzero \
 		cinstr \
+		ctos \
 		error \
 		isascii \
 		isalnum \
@@ -64,6 +65,7 @@ FILES = atoi \
 		strnequ \
 		strsub \
 		strnew \
+		stoc \
 		putnbr_fd \
 		putchar_fd \
 		putstr_fd \

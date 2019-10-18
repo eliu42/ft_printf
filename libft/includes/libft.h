@@ -6,7 +6,7 @@
 /*   By: eliu <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/02 18:17:10 by eliu              #+#    #+#             */
-/*   Updated: 2018/04/19 15:15:52 by eliu             ###   ########.fr       */
+/*   Updated: 2019/10/17 16:46:17 by eliu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct		s_list
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
+char				*ft_ctos(char c);
 int					ft_cinstr(char *str, char c);
 int					ft_error(char *str);
 int					ft_isalnum(int c);
@@ -93,6 +94,8 @@ char				**ft_strsplit(char const *s, char c);
 char				*ft_strstr(const char *big, const char *little);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
+
+char				ft_stoc(char *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
